@@ -1,15 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme'
+import { findByTestAtr } from './../../../Utils/'
 import Header from './index'
 
 const setUp = (props = {}) => {
     const component = shallow(<Header {...props} />)
     return component
-}
-
-const findByTestAtrr = (component, attr) => {
-    const wrapper = component.find(`[data-test='${attr}']`)
-    return wrapper
 }
 
 
