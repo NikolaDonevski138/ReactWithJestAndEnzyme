@@ -1,0 +1,34 @@
+import React from 'react';
+import { shallow } from 'enzyme'
+import Header from './index'
+
+const setUp = (props = {}) => {
+    const component = shallow(<Header {...props} />)
+    return component
+}
+
+const findByTestAtrr = (component, attr) => {
+    const wrapper = component.find(`[data-test='${attr}']`)
+    return wrapper
+}
+
+
+describe('Header Component', () => {
+
+    let component;
+    beforeEach(() => {
+        component = setUp()
+    })
+
+    it('It should render without errors', () => {
+        const component = setUp()
+        const wrapper = findByTestAtrr(component, 'headerComponent')
+        expect(wrapper.length).toBe(1)
+    })
+    it('Should render a logo', () => {
+        const component = setUp()
+        const logo = findByTestAtrr(component, 'logoIMG')
+        expect(logo.length).toBe(1)
+    })
+
+})
